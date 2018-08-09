@@ -6,12 +6,11 @@
 /*   By: jkellehe <jkellehe@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/17 16:38:23 by jkellehe          #+#    #+#             */
-/*   Updated: 2018/08/08 14:08:57 by dknoll           ###   ########.fr       */
+/*   Updated: 2018/08/08 18:18:24 by dknoll           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
-#include <stdio.h>
 
 int				bitter(char *buf, t_piece *p)
 {
@@ -40,31 +39,6 @@ int				bitter(char *buf, t_piece *p)
 	}
 	slider(p->value);
 	return (0);
-}
-
-int				valid_connects(char *str)
-{
-	int		i;
-	int		count;
-
-	count = 0;
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] == '#')
-		{
-			if (str[i + 1] == '#')
-				count++;
-			if (str[i + 5] == '#')
-				count++;
-			if (str[i - 1] == '#')
-				count++;
-			if (str[i - 5] == '#')
-				count++;
-		}
-		i++;
-	}
-	return (count == 6 || count == 8);
 }
 
 int				check_valid(char *buf)
@@ -166,6 +140,5 @@ int				main(int argc, char **argv)
 	board->final = get_final(p, board);
 	if (solver(p, board))
 		printer(p, board);
-	printf("%d\n", board->counter);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: dknoll <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/08 17:02:15 by dknoll            #+#    #+#             */
-/*   Updated: 2018/08/08 12:36:29 by jkellehe         ###   ########.fr       */
+/*   Updated: 2018/08/08 18:17:04 by dknoll           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>
 
 typedef struct s_piece		t_piece;
 typedef struct s_boards		t_boards;
@@ -48,6 +47,7 @@ struct				s_boards
 	unsigned int	counter;
 };
 
+int					valid_connects(char *str);
 int					get_top(uint64_t *value);
 int					haystack(char *haystack, char *needle, int rewind);
 int					valid_pieces(char *buf);

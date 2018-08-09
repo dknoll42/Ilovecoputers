@@ -6,7 +6,7 @@
 /*   By: jkellehe <jkellehe@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/04 19:42:11 by jkellehe          #+#    #+#             */
-/*   Updated: 2018/08/08 14:17:38 by dknoll           ###   ########.fr       */
+/*   Updated: 2018/08/08 18:19:12 by dknoll           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,29 @@ int				get_top(uint64_t *value)
 		i++;
 	}
 	return (1);
+}
+
+int				valid_connects(char *str)
+{
+	int		i;
+	int		count;
+
+	count = 0;
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] == '#')
+		{
+			if (str[i + 1] == '#')
+				count++;
+			if (str[i + 5] == '#')
+				count++;
+			if (str[i - 1] == '#')
+				count++;
+			if (str[i - 5] == '#')
+				count++;
+		}
+		i++;
+	}
+	return (count == 6 || count == 8);
 }
